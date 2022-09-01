@@ -1,0 +1,101 @@
+@media only screen and (max-width: 600px) {
+  .relative {
+    position: relative;
+  }
+
+  .absolute1 {
+    position: absolute;
+    top: 35px;
+    left: 42px;
+  }
+
+  .absolute3 {
+    position: absolute;
+    top: 35px;
+    right: 42px;
+  }
+
+  .heroHead {
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+  }
+
+  .heroP {
+    font-size: 13px;
+    font-weight: 200px;
+    text-align: start;
+    /* width: 220px */
+    /* font-weight: 400 */
+    /* padding-bottom: 10px; */
+    /* font-style: italic; */
+  }
+
+  .heroP2 {
+    font-size: 13px;
+    font-weight: 200px;
+    letter-spacing: 1px;
+    text-align: end;
+  }
+
+  .sliderImg {
+    height: 250px !important;
+    object-fit: cover !important;
+  }
+}
+
+.heroBtn {
+  border-radius: 0;
+  border: 0;
+}
+
+/* large device  600px and up) */
+@media only screen and (min-width: 600px) {
+  .relative {
+    position: relative;
+  }
+
+  .absolute1 {
+    position: absolute;
+    top: 180px;
+    left: 100px;
+  }
+
+  .relative3 {
+    position: relative;
+  }
+
+  .absolute3 {
+    position: absolute;
+    top: 180px;
+    right: 100px;
+  }
+
+  .sliderImg {
+    height: 100vh !important;
+  }
+
+  .heroHead {
+    font-size: 50px;
+    font-weight: 700;
+    text-align: start;
+    letter-spacing: 2px;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  .heroP {
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-align: start;
+  }
+
+  .heroP2 {
+    font-size: 18px;
+    font-weight: 200px;
+    letter-spacing: 1px;
+    text-align: end;
+  }
+}

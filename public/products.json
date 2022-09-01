@@ -1,0 +1,92 @@
+[
+  {
+    "_id": 1,
+    "name": "Lens",
+    "img": "https://i.ibb.co/3cGbLXH/lens.jpg",
+    "description": "Here's the top 20 items of camera accessories, which should be in every photographer's setup, ranging from a simple filter, to a top of the line lens!",
+    "minOrderQuantity": "100",
+    "availableQuantity": "3500",
+    "price": "45000"
+  },
+  {
+    "_id": 2,
+    "name": "Stand",
+    "img": "https://i.ibb.co/w6BcjP8/download-2.jpg",
+    "description": "Here's the top 20 items of camera accessories, which should be in every photographer's setup, ranging from a simple filter, to a top of the line lens!",
+    "minOrderQuantity": "100",
+    "availableQuantity": "3500",
+    "price": "450"
+  },
+  {
+    "_id": 3,
+    "name": "Camera Bag",
+    "img": "https://i.ibb.co/LtnLNtt/71-Tgf9r-O-L-SL1500.jpg",
+    "description": "Here's the top 20 items of camera accessories, which should be in every photographer's setup, ranging from a simple filter, to a top of the line lens!",
+    "minOrderQuantity": "100",
+    "availableQuantity": "3500",
+    "price": "450"
+  },
+  {
+    "_id": 4,
+    "name": "Tripod",
+    "img": "https://i.ibb.co/89V9bmN/tripod.jpg",
+    "description": "Here's the top 20 items of camera accessories, which should be in every photographer's setup, ranging from a simple filter, to a top of the line lens!",
+    "minOrderQuantity": "100",
+    "availableQuantity": "3700",
+    "price": "4550"
+  },
+  {
+    "_id": 5,
+    "name": "Filters",
+    "img": "https://i.ibb.co/ZLCZ74H/Filters.jpg",
+    "description": "Here's the top 20 items of camera accessories, which should be in every photographer's setup, ranging from a simple filter, to a top of the line lens!",
+    "minOrderQuantity": "100",
+    "availableQuantity": "2300",
+    "price": "4000"
+  },
+  {
+    "_id": 6,
+    "name": "Flash",
+    "img": "https://i.ibb.co/B4nqvKk/Flash.jpg",
+    "description": "Here's the top 20 items of camera accessories, which should be in every photographer's setup, ranging from a simple filter, to a top of the line lens!",
+    "minOrderQuantity": "100",
+    "availableQuantity": "3200",
+    "price": "5500"
+  },
+  {
+    "_id": 7,
+    "name": "Extra Batteries",
+    "img": "https://i.ibb.co/g31fbf5/Extra-Batteries.jpg",
+    "description": "Here's the top 20 items of camera accessories, which should be in every photographer's setup, ranging from a simple filter, to a top of the line lens!",
+    "minOrderQuantity": "100",
+    "availableQuantity": "6700",
+    "price": "6700"
+  },
+  {
+    "_id": 8,
+    "name": "Filters 8",
+    "img": "https://i.ibb.co/ZLCZ74H/Filters.jpg",
+    "description": "Here's the top 20 items of camera accessories, which should be in every photographer's setup, ranging from a simple filter, to a top of the line lens!",
+    "minOrderQuantity": "100",
+    "availableQuantity": "2300",
+    "price": "4000"
+  },
+  {
+    "_id": 9,
+    "name": "Flash 9",
+    "img": "https://i.ibb.co/B4nqvKk/Flash.jpg",
+    "description": "Here's the top 20 items of camera accessories, which should be in every photographer's setup, ranging from a simple filter, to a top of the line lens!",
+    "minOrderQuantity": "100",
+    "availableQuantity": "3200",
+    "price": "5500"
+  },
+  {
+    "_id": 10,
+    "name": "Extra Batteries 10",
+    "img": "https://i.ibb.co/3cGbLXH/lens.jpg",
+    "description": "Here's the top 20 items of camera accessories, which should be in every photographer's setup, ranging from a simple filter, to a top of the line lens!",
+    "minOrderQuantity": "100",
+    "availableQuantity": "6700",
+    "price": "6700"
+  }
+]
