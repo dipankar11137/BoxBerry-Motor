@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import "../../CSS/PicStyle.css";
 
 const CameraTool = ({ product }) => {
   const {
@@ -20,7 +21,7 @@ const CameraTool = ({ product }) => {
     <div>
       <div class="card w-96 glass p-2 shadow-xl">
         <div className=" flex justify-center">
-          <img className="w-72 h-64 rounded-xl" src={img} alt="" />
+          <img className="w-72 h-64 rounded-xl pic-style" src={img} alt="" />
         </div>
         <div class="card-body">
           <h2 class="card-title text-2xl font-bold">{name}</h2>

@@ -1,11 +1,16 @@
 import React from "react";
+import Footer from "../../Share/Footer";
 import Banner from "./Banner";
+import CameraTools from "./CameraTools";
+import PhoneProducts from "./PhoneProducts";
 
 const Home = () => {
   return (
     <div>
       <Banner />
-      <button className="btn btn-warning">Click me</button>
+      <CameraTools />
+      <PhoneProducts />
+      <Footer />
     </div>
   );
 };

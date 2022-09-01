@@ -6,7 +6,7 @@ const CameraTools = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("https://safe-hamlet-14439.herokuapp.com/cameraProducts")
+    fetch("products.json")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
