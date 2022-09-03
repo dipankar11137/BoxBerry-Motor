@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import CarTool from "./CarTool";
 
 const CarTools = () => {
   const [carTools, setCarTools] = useState([]);
   const [carToolId, setCarToolId] = useState({});
   const [id, setId] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:5000/carTools")
@@ -18,12 +20,12 @@ const CarTools = () => {
       .then((data) => setCarToolId(data));
   }, [carToolId]);
 
-  const addToCard = (id) => {
+  const handleModal = (id) => {
     setId(id);
   };
 
-  const handleModal = (id) => {
-    setId(id);
+  const handleBooking = (id) => {
+    navigate(`/booking/${id}`);
   };
   return (
     <div className="px-8">
@@ -35,7 +37,7 @@ const CarTools = () => {
             tool={tool}
             handleModal={handleModal}
             carToolId={carToolId}
-            addToCard={addToCard}
+            handleBooking={handleBooking}
           ></CarTool>
         ))}
       </div>

@@ -1,14 +1,7 @@
 import React from "react";
-import { useForm } from "react-hook-form";
-import "../../CSS/PicStyle.css";
 
-const CarTool = ({ tool, handleModal, carToolId, addToCard }) => {
+const CarTool = ({ tool, handleModal, carToolId, handleBooking }) => {
   const { _id, name, price, img, status } = tool;
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm();
 
   return (
     <div class="w-full max-w-sm  bg-white rounded-2xl shadow-2xl hover:shadow-inherit dark:bg-gray-800 dark:border-gray-700  hover:bg-purple-900 ">
@@ -91,7 +84,7 @@ const CarTool = ({ tool, handleModal, carToolId, addToCard }) => {
                     <div class="badge badge-secondary">{carToolId?.status}</div>
                   </h2>
                   <h2 className="text-2xl font-bold text-orange-400">
-                    $ {carToolId?.price}
+                    ${carToolId?.price}
                   </h2>
                   <h2>
                     Available Products :{" "}
@@ -110,117 +103,10 @@ const CarTool = ({ tool, handleModal, carToolId, addToCard }) => {
               </div>
             </div>
           </div>
-
-          {/* Booked  Modal*/}
-          {/* <!-- The button to open modal --> */}
-          <button onClick={() => addToCard(_id)}>
-            <label for="my-modal-6" class="btn modal-button">
-              Add To Card
-            </label>
+          {/* Book Button  */}
+          <button onClick={() => handleBooking(_id)} class="btn btn-orange-500">
+            Book Now
           </button>
-
-          {/* <!-- Put this part before </body> tag --> */}
-          <input type="checkbox" id="my-modal-6" class="modal-toggle" />
-          <div class="modal modal-bottom sm:modal-middle">
-            <div class="modal-box">
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="form-control w-full max-w-xs">
-                  <label className="label">
-                    <span className="label-text">Name</span>
-                  </label>
-                  <input
-                    type="text"
-                    value={booking?.name}
-                    className="input input-bordered bg-white w-full max-w-xs cursor-not-allowed disabled:text-slate-500"
-                    {...register("name", {
-                      required: {
-                        value: true,
-                      },
-                    })}
-                  />
-                </div>
-
-                <div className="form-control w-full max-w-xs">
-                  <label className="label">
-                    <span className="label-text">Email</span>
-                  </label>
-                  <input
-                    type="email"
-                    value={user?.email}
-                    className="input input-bordered  bg-white w-full max-w-xs cursor-not-allowed disabled:text-slate-500"
-                    {...register("email", {
-                      required: {
-                        value: true,
-                      },
-                    })}
-                  />
-                </div>
-
-                <div className="form-control w-full max-w-xs">
-                  <label className="label">
-                    <span className="label-text">Date</span>
-                  </label>
-                  <input
-                    type="date"
-                    className="input input-bordered bg-white w-full max-w-xs"
-                    {...register("date", {
-                      required: {
-                        value: true,
-                        message: "Date is Required",
-                      },
-                    })}
-                  />
-                  <label className="label">
-                    {errors.date?.type === "required" && (
-                      <span className="label-text-alt text-red-500">
-                        {errors.date.message}
-                      </span>
-                    )}
-                    {errors.date?.type === "minLength" && (
-                      <span className="label-text-alt text-red-500">
-                        {errors.date.message}
-                      </span>
-                    )}
-                  </label>
-                </div>
-
-                <div className="form-control w-full max-w-xs">
-                  <label className="label">
-                    <span className="label-text">Quantity</span>
-                  </label>
-                  <input
-                    type="quantity"
-                    placeholder="Quantity"
-                    className="input input-bordered bg-white w-full max-w-xs"
-                    {...register("quantity", {
-                      required: {
-                        value: true,
-                        message: "Quantity is Required",
-                      },
-                    })}
-                  />
-                  <label className="label">
-                    {errors.quantity?.type === "required" && (
-                      <span className="label-text-alt text-red-500">
-                        {errors.quantity.message}
-                      </span>
-                    )}
-                    {errors.quantity?.type === "minLength" && (
-                      <span className="label-text-alt text-red-500">
-                        {errors.quantity.message}
-                      </span>
-                    )}
-                  </label>
-                </div>
-
-                <input
-                  className="btn btn-primary w-full text-white"
-                  type="submit"
-                  value="Booked"
-                />
-              </form>
-            </div>
-          </div>
         </div>
       </div>
     </div>
