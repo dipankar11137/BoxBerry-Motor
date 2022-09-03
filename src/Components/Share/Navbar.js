@@ -82,7 +82,7 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex lg:pr-36 ">
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
-      <h1>image</h1>
+      {/* <h1>image</h1> */}
     </div>
   );
 };
