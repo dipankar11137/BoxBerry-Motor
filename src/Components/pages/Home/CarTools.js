@@ -27,8 +27,12 @@ const CarTools = () => {
   const handleBooking = (id) => {
     navigate(`/booking/${id}`);
   };
+
+  const handleShowAllCarProducts = () => {
+    navigate("/showAllCarProducts");
+  };
   return (
-    <div className="px-8">
+    <div className="px-8 bg-slate-400 mx-4 p-4 rounded-2xl shadow-2xl">
       <h1>Car Items</h1>
       <div className="grid sm:grid-cols-1 lg:grid-cols-4  gap-4">
         {carTools.slice(0, 8).map((tool) => (
@@ -40,6 +44,11 @@ const CarTools = () => {
             handleBooking={handleBooking}
           ></CarTool>
         ))}
+      </div>
+      <div className="flex justify-end mt-5">
+        <button onClick={handleShowAllCarProducts} className="btn">
+          Show All{" "}
+        </button>
       </div>
     </div>
   );

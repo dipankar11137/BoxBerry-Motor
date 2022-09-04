@@ -7,7 +7,7 @@ import PhoneProducts from "./PhoneProducts";
 
 const Home = () => {
   return (
-    <div>
+    <div className="bg-slate-500">
       {/* <Banner /> */}
       <CarTools />
       <CameraTools />

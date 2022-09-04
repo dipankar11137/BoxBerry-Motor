@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { signOut } from "firebase/auth";
@@ -7,8 +7,21 @@ import logo from "../../Images/logo/logo.png";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
+  const email = user?.email;
+  const navigate = useNavigate();
+  const [booking, setBooking] = useState([]);
   const logout = () => {
     signOut(auth);
+  };
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/carBooking/${email}`)
+      .then((res) => res.json())
+      .then((data) => setBooking(data));
+  }, [booking]);
+
+  const handleBook = () => {
+    navigate("/myOrders");
   };
 
   const menuItems = (
@@ -21,7 +34,7 @@ const Navbar = () => {
       </li>
       {user && (
         <li className="font-bold hover:text-orange-400">
-          <Link to="/myOrder">My Orders</Link>
+          <Link to="/myOrders">My Orders</Link>
         </li>
       )}
       <li className="font-bold hover:text-orange-400">
@@ -86,7 +99,11 @@ const Navbar = () => {
       </div>
       {/* Image */}
       <div className="navbar-end">
-        <label tabindex="0" class="btn btn-ghost btn-circle mr-3">
+        <label
+          onClick={handleBook}
+          tabindex="0"
+          class="btn btn-ghost btn-circle mr-3"
+        >
           <div class="indicator">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -102,7 +119,7 @@ const Navbar = () => {
                 d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
               />
             </svg>
-            <span class="badge badge-sm indicator-item">8</span>
+            <span class="badge badge-sm indicator-item">{booking.length}</span>
           </div>
         </label>
         <div class="dropdown dropdown-end  mr-5">
