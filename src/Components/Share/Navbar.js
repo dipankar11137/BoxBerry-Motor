@@ -108,7 +108,7 @@ const Navbar = () => {
         <div class="dropdown dropdown-end  mr-5">
           <label tabindex="0" class="btn btn-ghost btn-circle avatar">
             <div class="w-10 rounded-full">
-              <img src="https://placeimg.com/80/80/people" />
+              <img src="https://placeimg.com/80/80/people" alt="" />
             </div>
           </label>
           <ul
@@ -116,14 +116,12 @@ const Navbar = () => {
             class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-40 dark:bg-gray-800 dark:border-gray-700 hover:dark:bg-purple-900"
           >
             <li>
-              <a class="justify-between">
-                Profile
-                {/* <span class="badge">New</span> */}
-              </a>
+              <Link to="/">Profile</Link>
             </li>
             <li>
-              <a>Settings</a>
+              <Link to="/">Settings</Link>
             </li>
+
             <li className=" font-bold">
               {user ? (
                 <button className=" font-bold text-orange-500" onClick={logout}>

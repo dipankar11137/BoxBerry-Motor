@@ -7,8 +7,8 @@ import { toast } from "react-toastify";
 import auth from "../../../firebase.init";
 
 const Booking = () => {
-  const { bookingId } = useParams();
-  console.log(bookingId);
+  const { id } = useParams();
+  // console.log(id);
   const [user] = useAuthState(auth);
   const {
     register,
@@ -19,36 +19,46 @@ const Booking = () => {
 
   const [booking, setBooking] = useState({});
 
-  //   useEffect(() => {
-  //     const url = `http://localhost:5000/carTools/${bookingId}`;
-  //     fetch(url)
-  //       .then((res) => res.json())
-  //       .then((data) => setBooking(data));
-  //   }, []);
+  useEffect(() => {
+    const url = `http://localhost:5000/carTools/${id}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setBooking(data));
+  }, []);
 
   const onSubmit = (data) => {
-    // const newQuantity = data?.quantity;
-    // const beforeQuantity = booking?.availableQuantity;
-    // if (newQuantity > beforeQuantity) {
-    //   return toast.error("More than available product");
-    // } else {
-    //   fetch("http://localhost:5000/carBooking", {
-    //     method: "POST",
-    //     headers: {
-    //       "content-type": "application/json",
-    //     },
-    //     body: JSON.stringify(data),
-    //   })
-    //     .then((res) => res.json())
-    //     .then((result) => {
-    //       toast.success("Successfully Add This Products");
-    //       navigator("/");
-    //     });
-    // }
+    const newQuantity = data?.quantity;
+    // console.log(newQuantity);
+    const beforeQuantity = booking?.quantity;
+    // console.log(beforeQuantity);
+    if (newQuantity > beforeQuantity) {
+      return toast.error("More than available product");
+    } else {
+      fetch("http://localhost:5000/carBooking", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((res) => res.json())
+        .then((result) => {
+          toast.success("Successfully Add This Products");
+          // console.log("tost is not work");
+          navigator("/");
+        });
+    }
   };
   return (
-    <div className="flex h-screen justify-center items-center  bg-slate-300">
-      <div className="card w-96 shadow-xl mt-5 bg-violet-50">
+    <div className="flex h-screen justify-center items-center  bg-slate-700">
+      <div className="p-4">
+        <img
+          className="h-56 w-72 rounded-xl animate-bounce"
+          src={booking?.img}
+          alt=""
+        />
+      </div>
+      <div className="card w-96 shadow-xl  bg-violet-50">
         <div className="card-body">
           <h2 className="text-center text-2xl">Booked Product</h2>
 
@@ -62,6 +72,21 @@ const Booking = () => {
                 value={booking?.name}
                 className="input input-bordered bg-white w-full max-w-xs cursor-not-allowed disabled:text-slate-500"
                 {...register("name", {
+                  required: {
+                    value: true,
+                  },
+                })}
+              />
+            </div>
+            <div className="form-control w-full max-w-xs ">
+              <label className="label">
+                <span className="label-text">Image</span>
+              </label>
+              <input
+                type="text"
+                value={booking?.img}
+                className="input input-bordered bg-white w-full max-w-xs cursor-not-allowed disabled:text-slate-500"
+                {...register("img", {
                   required: {
                     value: true,
                   },
@@ -146,12 +171,19 @@ const Booking = () => {
             </div>
 
             <input
-              className="btn btn-primary w-full text-white"
+              className="btn btn-orange-500 w-full text-white"
               type="submit"
               value="Booked"
             />
           </form>
         </div>
+      </div>
+      <div className="p-4">
+        <img
+          className="h-56 w-72 rounded-xl animate-bounce"
+          src={booking?.img2}
+          alt=""
+        />
       </div>
     </div>
   );
