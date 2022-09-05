@@ -5,7 +5,7 @@ import CameraTools from "./CameraTools";
 import CarTools from "./CarTools";
 import PhoneProducts from "./PhoneProducts";
 import RatingReview from "./RatingReview";
-import Review from "./Review";
+import Reviews from "./Reviews";
 
 const Home = () => {
   return (
@@ -15,7 +15,7 @@ const Home = () => {
       <CameraTools />
       <PhoneProducts />
       <RatingReview />
-      <Review />
+      <Reviews />
       <Footer />
     </div>
   );
