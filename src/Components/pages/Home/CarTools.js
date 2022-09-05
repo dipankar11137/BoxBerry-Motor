@@ -37,7 +37,7 @@ const CarTools = () => {
         Car Items
       </h1>
       <div className="grid sm:grid-cols-1 lg:grid-cols-4  gap-4">
-        {carTools.map((tool) => (
+        {carTools.slice(0, 8).map((tool) => (
           <CarTool
             key={tool._id}
             tool={tool}
