@@ -24,13 +24,11 @@ const Booking = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setBooking(data));
-  }, []);
+  }, [booking]);
 
   const onSubmit = (data) => {
     const newQuantity = data?.quantity;
-    // console.log(newQuantity);
     const beforeQuantity = booking?.quantity;
-    // console.log(beforeQuantity);
     if (newQuantity > beforeQuantity) {
       return toast.error("More than available product");
     } else {
@@ -45,8 +43,32 @@ const Booking = () => {
         .then((result) => {
           toast.success("Successfully Add This Products");
           // console.log("tost is not work");
+          manageQuantity(newQuantity);
           navigator("/");
         });
+    }
+  };
+  // delivery products minus
+  const manageQuantity = (quantity) => {
+    console.log("get", quantity);
+    if (booking?.quantity > 0) {
+      const newQuantity = parseInt(booking?.quantity) - quantity;
+      const updateQuantity = { quantity: newQuantity };
+
+      fetch(`http://localhost:5000/carTools/${id}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateQuantity),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setBooking(data);
+          // toast.success("Product Delivery Successful");
+        });
+    } else {
+      toast.error("Sold Out");
     }
   };
   return (
@@ -58,9 +80,13 @@ const Booking = () => {
           alt=""
         />
       </div>
-      <div className="card w-96 shadow-xl  bg-violet-50">
+      <div className="card w-96 shadow-xl  bg-slate-500">
         <div className="card-body">
-          <h2 className="text-center text-2xl">Booked Product</h2>
+          <h2 className="text-center text-2xl text-white">Booked Product</h2>
+          <h2 className=" text-xl text-white">
+            Available Product :{" "}
+            <span className="font-bold ">{booking?.quantity}</span>
+          </h2>
 
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-control w-full max-w-xs">

@@ -1,7 +1,7 @@
 import React from "react";
 
 const CarTool = ({ tool, handleModal, carToolId, handleBooking }) => {
-  const { _id, name, price, img, status } = tool;
+  const { _id, name, price, img, status, quantity } = tool;
 
   return (
     <div>
@@ -20,6 +20,9 @@ const CarTool = ({ tool, handleModal, carToolId, handleBooking }) => {
           <h2 class="card-title text-white">
             {name}
             <div class="badge badge-secondary">{status}</div>
+          </h2>
+          <h2 className="text-lg text-white">
+            Available Products : <span>{quantity}</span>
           </h2>
 
           <div class="rating rating-sm">

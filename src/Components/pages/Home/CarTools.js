@@ -12,7 +12,7 @@ const CarTools = () => {
     fetch("http://localhost:5000/carTools")
       .then((res) => res.json())
       .then((data) => setCarTools(data));
-  }, []);
+  }, [carTools]);
 
   useEffect(() => {
     fetch(`http://localhost:5000/carTools/${id}`)

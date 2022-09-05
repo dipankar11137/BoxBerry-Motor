@@ -29,10 +29,36 @@ const MyOrders = () => {
         .then((data) => {
           const remaining = booking.filter((product) => product._id !== id);
           setBooking(remaining);
+          // manageQuantity(booking?.quantity, id);
           toast.success("Successfully Remove");
         });
     }
   };
+
+  // delivery products minus
+  // const manageQuantity = (quantity, id) => {
+  //   console.log("get", quantity);
+  //   console.log("booking", booking?.quantity);
+  //   // if (booking?.quantity > 0) {
+  //   const newQuantity = parseInt(booking?.quantity) + quantity;
+  //   const updateQuantity = { quantity: newQuantity };
+
+  //   fetch(`http://localhost:5000/carTools/${id}`, {
+  //     method: "PUT",
+  //     headers: {
+  //       "content-type": "application/json",
+  //     },
+  //     body: JSON.stringify(updateQuantity),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setBooking(data);
+  //       // toast.success("Product Delivery Successful");
+  //     });
+  // } else {
+  //   toast.error("Sold Out");
+  // }
+  // };
 
   return (
     <div>
