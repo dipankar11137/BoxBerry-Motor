@@ -69,7 +69,7 @@ const Dashboard = () => {
                   to="/dashboard/addNewProducts"
                   className="font-bold hover:text-orange-600"
                 >
-                  Add New Product
+                  Add New Car Product
                 </Link>
               </li>
               <li>
