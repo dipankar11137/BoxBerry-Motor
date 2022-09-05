@@ -19,6 +19,7 @@ import ManageAllOrders from "./Components/pages/Dashboard/ManageAllOrders";
 import ManageAllProducts from "./Components/pages/Dashboard/ManageAllProducts";
 import AddCarProducts from "./Components/pages/Dashboard/AddCarProducts";
 import ManageAllUser from "./Components/pages/Dashboard/ManageAllUser";
+import Reviews from "./Components/pages/Home/Reviews";
 
 function App() {
   return (
@@ -43,6 +44,14 @@ function App() {
           element={
             <RequireAuth>
               <MyProfile />
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/addAReview"
+          element={
+            <RequireAuth>
+              <MyReview />
             </RequireAuth>
           }
         ></Route>
