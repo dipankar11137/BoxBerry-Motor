@@ -15,7 +15,7 @@ const Banner = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
+    // autoplay: true,
     autoplaySpeed: 2500,
     cssEase: "linear",
     pauseOnHover: true,
@@ -27,20 +27,15 @@ const Banner = () => {
         <img className="object-fill sliderImg w-screen" src={car} alt="" />
         <div className="absolute1 flex flex-col  justify-start">
           <div>
-            <p className="heroP text-lime-200 ">
-              {" "}
-              City<span className="text-orange-300">
-                Crown
-              </span> Electronics{" "}
-            </p>
+            <p className="heroP text-lime-200 "></p>
           </div>
           <div>
-            <h1 className="heroHead text-start ">MackBook Pro</h1>
+            <h1 className="heroHead text-start text-white">Car Tools</h1>
           </div>
           <div>
             <p className="heroP text-white pb-4 ">
               {" "}
-              Apple Product dolor amet consectetur <br />
+              This Car Product dolor amet consectetur <br />
               adipisicing Nobis, excepturi.{" "}
             </p>
           </div>
@@ -57,17 +52,12 @@ const Banner = () => {
       </div>
       <div div className="relative h-scren w-screen ">
         <img className="object-fill sliderImg w-screen" src={camera} alt="" />
-        <div className="absolute1 flex flex-col  justify-start">
+        <div className="absolute1 flex flex-col  justify-start mt-20">
           <div className="mt-36">
-            <p className="heroP text-lime-500 ">
-              {" "}
-              City<span className="text-orange-500">
-                Crown
-              </span> Electronics{" "}
-            </p>
+            <p className="heroP text-lime-500 "></p>
           </div>
           <div>
-            <h1 className="heroHead text-start ">EarPot V4</h1>
+            <h1 className="heroHead text-start text-white">Camera Tools</h1>
           </div>
           <div>
             <p className="heroP text-white pb-4 ">
@@ -91,20 +81,15 @@ const Banner = () => {
         <img className="object-fill sliderImg w-screen" src={laptop} alt="" />
         <div className="absolute1 flex flex-col  justify-start">
           <div>
-            <p className="heroP text-lime-500 ">
-              {" "}
-              City<span className="text-orange-500">
-                Crown
-              </span> Electronics{" "}
-            </p>
+            <p className="heroP text-lime-500 "></p>
           </div>
           <div>
-            <h1 className="heroHead text-start ">iPad Pro</h1>
+            <h1 className="heroHead text-start text-white">Laptop Tools</h1>
           </div>
           <div>
             <p className="heroP text-white pb-4 ">
               {" "}
-              Apple Product dolor amet consectetur <br />
+              Laptop Product dolor amet consectetur <br />
               adipisicing Nobis, excepturi.{" "}
             </p>
           </div>

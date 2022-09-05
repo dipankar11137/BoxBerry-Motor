@@ -18,10 +18,10 @@ const CameraTool = ({ product }) => {
     navigate(`/booking/${id}`);
   };
   return (
-    <div>
-      <div class="card w-96 glass p-2 shadow-xl">
+    <div className="">
+      <div class="card w-96 glass p-2 shadow-xl bg-sky-900 hover:bg-indigo-900  text-white">
         <div className=" flex justify-center">
-          <img className="w-72 h-64 rounded-xl pic-style" src={img} alt="" />
+          <img className="w-full h-64 rounded-xl pic-style" src={img} alt="" />
         </div>
         <div class="card-body">
           <h2 class="card-title text-2xl font-bold">{name}</h2>
@@ -30,7 +30,7 @@ const CameraTool = ({ product }) => {
           <p className="font-bold ">Available Products : {availableQuantity}</p>
           <p className="font-bold ">Price : {price} /per</p>
           <div class="card-actions justify-end">
-            <button onClick={() => handleBooking(_id)} class="btn btn-primary">
+            <button onClick={() => handleBooking(_id)} class="btn">
               Booking Now
             </button>
           </div>

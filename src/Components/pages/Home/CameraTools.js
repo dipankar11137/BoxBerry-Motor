@@ -12,9 +12,9 @@ const CameraTools = () => {
   }, []);
 
   return (
-    <div>
-      <hr className="mt-5" />
-      <h1 className="text-5xl text-center uppercase font-bold mt-5 text-amber-600">
+    <div className="p-8 mt-5 bg-slate-400 mx-4 rounded-2xl shadow-2xl">
+      {/* <hr className="mt-5" /> */}
+      <h1 className="text-5xl text-center uppercase font-bold  text-fuchsia-900">
         Camera Tools Products{" "}
       </h1>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 m-10">
@@ -24,7 +24,7 @@ const CameraTools = () => {
       </div>
       <div className="flex justify-end m-8">
         <Link to="/showAllCameraTools">
-          <button className="btn btn-primary ">Show All Camera Tools</button>
+          <button className="btn  ">Show All Camera Tools</button>
         </Link>
       </div>
     </div>

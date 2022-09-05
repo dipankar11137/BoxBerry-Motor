@@ -11,19 +11,18 @@ const PhoneProducts = () => {
       .then((data) => setProducts(data));
   }, []);
   return (
-    <div>
-      <hr />
-      <h1 className="text-5xl text-center uppercase font-bold mt-5 text-amber-600">
+    <div className="bg-purple-300  m-5 rounded-xl">
+      <h1 className="text-5xl text-center uppercase font-bold pt-5 text-fuchsia-900">
         Mobile Phone Products{" "}
       </h1>
-      <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 m-10 gap-4 p-3">
-        {products.slice(0, 8).map((product) => (
+      <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 mt-10 px-4 gap-2">
+        {products.slice(0, 10).map((product) => (
           <PhoneProduct key={product._id} product={product}></PhoneProduct>
         ))}
       </div>
-      <div className="flex justify-end m-8">
+      <div className="flex justify-end m-8 pb-5">
         <Link to="/showAllMobilePhone">
-          <button className="btn btn-primary font-bold">
+          <button className="btn font-bold">
             Show All Mobile Phone Products
           </button>
         </Link>

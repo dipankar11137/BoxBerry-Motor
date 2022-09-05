@@ -63,7 +63,7 @@ const MyOrders = () => {
   return (
     <div>
       <div className="bg-slate-700 pb-10 text-white">
-        <h1>Booking</h1>
+        {/* <h1 className="">Booking</h1> */}
         <div class="overflow-x-auto mx-52 border rounded-xl text-black ">
           <table class="table w-full text-center text-2xl">
             <thead>

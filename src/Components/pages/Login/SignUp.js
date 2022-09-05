@@ -27,6 +27,9 @@ const SignUp = () => {
   let from = location.state?.from?.pathname || "/";
 
   let signInError;
+  if (gUser) {
+    navigate("/");
+  }
 
   const onSubmit = (data) => {
     console.log(data.email, data.password);

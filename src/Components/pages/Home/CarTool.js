@@ -9,12 +9,14 @@ const CarTool = ({ tool, handleModal, carToolId, handleBooking }) => {
         {/* <img class="p-8 rounded-t-lg" src={tool.img} alt="product image"> */}
         {/* <span class="indicator-item badge badge-primary">new</span> */}
         <figure>
-          <img
-            className="w-full rounded-xl"
-            src={img}
-            alt=""
-            style={{ height: "220px" }}
-          />
+          <div className="">
+            <img
+              className="rounded-xl w-full "
+              src={img}
+              alt=""
+              style={{ height: "220px" }}
+            />
+          </div>
         </figure>
         <div class="px-5 pb-5 mt-3">
           <h2 class="card-title text-white">

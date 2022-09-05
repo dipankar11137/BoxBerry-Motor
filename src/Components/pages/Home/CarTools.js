@@ -33,7 +33,9 @@ const CarTools = () => {
   };
   return (
     <div className="px-8 bg-slate-400 mx-4 p-4 rounded-2xl shadow-2xl">
-      <h1>Car Items</h1>
+      <h1 className="text-center text-6xl font-bold py-3 uppercase text-fuchsia-900">
+        Car Items
+      </h1>
       <div className="grid sm:grid-cols-1 lg:grid-cols-4  gap-4">
         {carTools.slice(0, 8).map((tool) => (
           <CarTool

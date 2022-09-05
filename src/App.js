@@ -9,6 +9,16 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import MyOrders from "./Components/pages/MyOrder/MyOrders";
 import AllCarProducts from "./Components/pages/Home/AllCarProducts";
+import RequireAuth from "./Components/pages/Login/RequireAuth";
+import MyProfile from "./Components/pages/MyProfile/MyProfile";
+import NotFound from "./Components/Share/NotFound";
+import Dashboard from "./Components/pages/Dashboard/Dashboard";
+import MyReview from "./Components/pages/Dashboard/MyReview";
+import History from "./Components/pages/Dashboard/History";
+import ManageAllOrders from "./Components/pages/Dashboard/ManageAllOrders";
+import ManageAllProducts from "./Components/pages/Dashboard/ManageAllProducts";
+import AddCarProducts from "./Components/pages/Dashboard/AddCarProducts";
+import ManageAllUser from "./Components/pages/Dashboard/ManageAllUser";
 
 function App() {
   return (
@@ -20,10 +30,45 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/booking/:id" element={<Booking />}></Route>
-        <Route path="/myOrders" element={<MyOrders />}></Route>
+        <Route
+          path="/myOrders"
+          element={
+            <RequireAuth>
+              <MyOrders />
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/myProfile"
+          element={
+            <RequireAuth>
+              <MyProfile />
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="/showAllCarProducts" element={<AllCarProducts />}></Route>
+        {/* Dashboard */}
+        <Route
+          path="/dashboard"
+          element={
+            <RequireAuth>
+              <Dashboard />
+            </RequireAuth>
+          }
+        >
+          <Route index element={<MyOrders />} />
+          <Route path="myProfile" element={<MyProfile />} />
+          <Route path="review" element={<MyReview />} />
+          <Route path="history" element={<History />} />
+          <Route path="manageAllOrders" element={<ManageAllOrders />} />
+          <Route path="manageAllProducts" element={<ManageAllProducts />} />
+          <Route path="addNewProducts" element={<AddCarProducts />} />
+          <Route path="manageAllUser" element={<ManageAllUser />} />
+        </Route>
+        {/* Dashboard End */}
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
 
       <ToastContainer />

@@ -23,6 +23,10 @@ const Login = () => {
 
   let from = location.state?.from?.pathname || "/";
 
+  if (gUser) {
+    navigation("/");
+  }
+
   const onSubmit = (data) => {
     console.log(data);
     signInWithEmailAndPassword(data.email, data.password);
