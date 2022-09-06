@@ -135,6 +135,7 @@ const Booking = () => {
                 })}
               />
             </div>
+            {/* date */}
 
             <div className="form-control w-full max-w-xs">
               <label className="label">
@@ -163,7 +164,7 @@ const Booking = () => {
                 )}
               </label>
             </div>
-
+            {/* quantity */}
             <div className="form-control w-full max-w-xs">
               <label className="label">
                 <span className="label-text">Quantity</span>
@@ -196,6 +197,65 @@ const Booking = () => {
               </label>
             </div>
 
+            {/* address */}
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <span className="label-text">Address</span>
+              </label>
+              <input
+                type="text"
+                placeholder="Address"
+                className="input input-bordered bg-white w-full max-w-xs"
+                {...register("address", {
+                  required: {
+                    value: true,
+                    message: "Address is Required",
+                  },
+                })}
+              />
+              <label className="label">
+                {errors.address?.type === "required" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.address?.message}
+                  </span>
+                )}
+                {errors.address?.type === "minLength" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.address.message}
+                  </span>
+                )}
+              </label>
+            </div>
+
+            {/* Phone */}
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <span className="label-text">Phone</span>
+              </label>
+              <input
+                type="phone"
+                placeholder="Phone"
+                className="input input-bordered bg-white w-full max-w-xs"
+                {...register("phone", {
+                  required: {
+                    value: true,
+                    message: "Phone is Required",
+                  },
+                })}
+              />
+              <label className="label">
+                {errors.phone?.type === "required" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.phone.message}
+                  </span>
+                )}
+                {errors.phone?.type === "minLength" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.phone.message}
+                  </span>
+                )}
+              </label>
+            </div>
             <input
               className="btn btn-orange-500 w-full text-white"
               type="submit"
