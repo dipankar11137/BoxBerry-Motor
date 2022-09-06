@@ -31,10 +31,25 @@ const SignUp = () => {
     navigate("/");
   }
 
+  const createDBUser = (name, email) => {
+    fetch(`http://localhost:5000/create-user/${email}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ name, email }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
+
   const onSubmit = (data) => {
-    console.log(data.email, data.password);
+    // console.log(data.email, data.password, data.name);
     createUserWithEmailAndPassword(data.email, data.password);
     updateProfile({ displayName: data.name });
+    createDBUser(data.name, data.email);
     toast.success("Updated profile");
     navigate("/");
   };

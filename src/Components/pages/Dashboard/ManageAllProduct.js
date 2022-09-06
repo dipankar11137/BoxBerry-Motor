@@ -16,7 +16,7 @@ const ManageAllProduct = ({
       <td className="bg-slate-200">
         <div class="flex items-center space-x-3 ">
           <div class="avatar">
-            <div class="mask mask-squircle w-12 h-12">
+            <div class="mask  w-12 h-12">
               <img src={img} alt="Avatar Tailwind CSS Component" />
             </div>
           </div>

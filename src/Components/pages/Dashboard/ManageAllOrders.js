@@ -11,7 +11,7 @@ const ManageAllOrders = () => {
   }, []);
 
   return (
-    <div className="mx-6">
+    <div className="mx-6 pb-10">
       <h1 className="text-center text-white font-bold text-2xl pb-3 uppercase">
         Manage All order
       </h1>
