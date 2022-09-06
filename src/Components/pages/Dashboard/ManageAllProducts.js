@@ -5,6 +5,7 @@ import ManageAllProduct from "./ManageAllProduct";
 const ManageAllProducts = () => {
   const [products, setProducts] = useState([]);
   const [car, setCar] = useState();
+  const [singleProduct, setSingleProduct] = useState({});
 
   useEffect(() => {
     fetch("http://localhost:5000/carTools")
@@ -28,15 +29,43 @@ const ManageAllProducts = () => {
         });
     }
   };
+
+  const handleEdit = (id) => {
+    fetch(`http://localhost:5000/carTools/${id}`)
+      .then((res) => res.json())
+      .then((data) => setSingleProduct(data));
+  };
+  // restock Product
+  const handleRestock = (event) => {
+    event.preventDefault();
+    const newQuantity =
+      parseInt(event.target.quantity.value) + parseInt(singleProduct.quantity);
+    console.log(newQuantity);
+    const updateQuantity = { quantity: newQuantity };
+    fetch(`http://localhost:5000/carTools/${singleProduct?._id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updateQuantity),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setCar(data);
+        toast.success("Restock Is Successfully");
+        event.target.reset();
+      });
+  };
+
   return (
-    <div className="p-4">
-      <h1 className="text-center text-2xl mt-7 font-bold text-purple-900 uppercase mb-4">
+    <div className="lg:ml-20 p-4">
+      <h1 className="text-center text-2xl  font-bold text-white uppercase mb-4 mr-20">
         Manage Car Tools
       </h1>
 
       <div>
         <div class="overflow-x-auto w-full">
-          <table class="table w-full">
+          <table class="table w-10/12 text-center">
             <thead>
               <tr>
                 <th className="pl-14 text-sm"> Name</th>
@@ -51,6 +80,9 @@ const ManageAllProducts = () => {
                   key={product._id}
                   product={product}
                   handleRemove={handleRemove}
+                  handleEdit={handleEdit}
+                  singleProduct={singleProduct}
+                  handleRestock={handleRestock}
                 ></ManageAllProduct>
               ))}
             </tbody>

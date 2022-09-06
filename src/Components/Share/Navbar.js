@@ -40,9 +40,7 @@ const Navbar = () => {
       <li className="font-bold hover:text-orange-400">
         <Link to="/addAReview">Add A Review</Link>
       </li>
-      <li className="font-bold hover:text-orange-400">
-        <Link to="/myProfile">My Profile</Link>
-      </li>
+
       {user && (
         <li className="font-bold hover:text-orange-400">
           <Link to="/dashboard">Dashboard</Link>
