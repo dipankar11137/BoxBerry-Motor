@@ -18,8 +18,8 @@ import History from "./Components/pages/Dashboard/History";
 import ManageAllOrders from "./Components/pages/Dashboard/ManageAllOrders";
 import ManageAllProducts from "./Components/pages/Dashboard/ManageAllProducts";
 import AddCarProducts from "./Components/pages/Dashboard/AddCarProducts";
-import ManageAllUser from "./Components/pages/Dashboard/ManageAllUser";
-import Reviews from "./Components/pages/Home/Reviews";
+import ManageAllUsers from "./Components/pages/Dashboard/ManageAllUsers";
+import Payment from "./Components/pages/Dashboard/Payment";
 
 function App() {
   return (
@@ -69,10 +69,11 @@ function App() {
           <Route path="myProfile" element={<MyProfile />} />
           <Route path="review" element={<MyReview />} />
           <Route path="history" element={<History />} />
+          <Route path="payment/:id" element={<Payment />} />
           <Route path="manageAllOrders" element={<ManageAllOrders />} />
           <Route path="manageAllProducts" element={<ManageAllProducts />} />
           <Route path="addNewProducts" element={<AddCarProducts />} />
-          <Route path="manageAllUser" element={<ManageAllUser />} />
+          <Route path="manageAllUser" element={<ManageAllUsers />} />
         </Route>
         {/* Dashboard End */}
         <Route path="/login" element={<Login />}></Route>

@@ -4,6 +4,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { signOut } from "firebase/auth";
 import logo from "../../Images/logo/logo.png";
+import { FaHome } from "react-icons/fa";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
@@ -26,8 +27,10 @@ const Navbar = () => {
 
   const menuItems = (
     <>
-      <li className="font-bold hover:text-orange-400">
-        <Link to="/about">About</Link>
+      <li className="font-bold hover:text-orange-400  text-xl">
+        <Link to="/">
+          <FaHome />
+        </Link>
       </li>
       <li className="font-bold hover:text-orange-400">
         <Link to="/blogs">Blogs</Link>
@@ -120,36 +123,55 @@ const Navbar = () => {
             <span class="badge badge-sm indicator-item">{booking.length}</span>
           </div>
         </label>
-        <div class="dropdown dropdown-end  mr-5">
-          <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-            <div class="w-10 rounded-full">
-              <img src="https://placeimg.com/80/80/people" alt="" />
-            </div>
-          </label>
-          <ul
-            tabindex="0"
-            class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-40 dark:bg-gray-800 dark:border-gray-700 hover:dark:bg-purple-900"
-          >
-            <li>
-              <Link to="/">Profile</Link>
-            </li>
-            <li>
-              <Link to="/">Settings</Link>
-            </li>
+        {user ? (
+          <div class="dropdown dropdown-end  mr-5">
+            <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+              <div class="w-10 rounded-full">
+                {/* <img src="https://placeimg.com/80/80/people" alt="" /> */}
+                {user.photoURL ? (
+                  <img src={user?.photoURL} alt="" />
+                ) : (
+                  // <h1>D</h1>
+                  <img
+                    src="https://cdn.imgbin.com/6/25/24/imgbin-user-profile-computer-icons-user-interface-mystique-aBhn3R8cmqmP4ECky4DA3V88y.jpg"
+                    alt=""
+                  />
+                )}
+              </div>
+            </label>
+            <ul
+              tabindex="0"
+              class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-40 dark:bg-gray-800 dark:border-gray-700 hover:dark:bg-purple-900"
+            >
+              <li>
+                <Link to="/">Profile</Link>
+              </li>
+              <li>
+                <Link to="/">Settings</Link>
+              </li>
 
-            <li className=" font-bold">
-              {user ? (
-                <button className=" font-bold text-orange-500" onClick={logout}>
-                  Sign Out
-                </button>
-              ) : (
-                <Link to="/login">Login</Link>
-              )}
+              <li className=" font-bold">
+                {user ? (
+                  <button
+                    className=" font-bold text-orange-500"
+                    onClick={logout}
+                  >
+                    Sign Out
+                  </button>
+                ) : (
+                  <Link to="/login">Login</Link>
+                )}
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <ul className="mr-5">
+            <li>
+              <Link to="/login">Login</Link>
             </li>
           </ul>
-        </div>
+        )}
       </div>
-      {/* <h1>image</h1> */}
     </div>
   );
 };

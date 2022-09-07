@@ -10,6 +10,7 @@ const MyOrders = () => {
   const [user] = useAuthState(auth);
 
   const email = user?.email;
+
   const [booking, setBooking] = useState([]);
 
   useEffect(() => {
@@ -68,10 +69,12 @@ const MyOrders = () => {
           <table class="table w-full text-center text-2xl">
             <thead>
               <tr className="text-white">
+                {/* <th></th> */}
                 <th className="bg-purple-900 "></th>
                 <th className="bg-fuchsia-900">Product Name</th>
                 <th className="bg-cyan-900">Delivery Date</th>
                 <th className="bg-green-900">Quantity</th>
+                <th className="bg-sky-900">Payment</th>
                 <th className="bg-indigo-900">Remove Product</th>
               </tr>
             </thead>
