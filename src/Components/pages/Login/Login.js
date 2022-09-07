@@ -6,6 +6,8 @@ import {
 import { useForm } from "react-hook-form";
 import auth from "../../../firebase.init";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Loading from "../../Share/Loading";
+import axios from "axios";
 
 const Login = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -14,24 +16,40 @@ const Login = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  let signInError;
-  const navigation = useNavigate();
-  const location = useLocation();
-
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
+  let signInError;
+  const navigate = useNavigate();
+  const location = useLocation();
+
   let from = location.state?.from?.pathname || "/";
 
-  if (gUser) {
-    navigation("/");
+  if (user || gUser) {
+    navigate(from, { replace: true });
   }
 
-  const onSubmit = (data) => {
-    console.log(data);
-    signInWithEmailAndPassword(data.email, data.password);
-    navigation("/");
+  if (loading || gLoading) {
+    return <Loading></Loading>;
+  }
+
+  if (error || gError) {
+    signInError = (
+      <p className="text-red-500">
+        <small>{error?.message || gError?.message}</small>
+      </p>
+    );
+  }
+
+  const onSubmit = async (data) => {
+    const email = data.email;
+    await signInWithEmailAndPassword(data.email, data.password);
+    const { accesstoken } = await axios.post("http://localhost:5000/login", {
+      email,
+    });
+    console.log(accesstoken);
   };
+
   return (
     <div className="flex h-screen justify-center items-center bg-slate-300">
       <div className="card w-96 shadow-2xl bg-violet-50">
