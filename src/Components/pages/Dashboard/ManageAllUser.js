@@ -3,32 +3,28 @@ import { toast } from "react-toastify";
 
 const ManageAllUser = ({ user }) => {
   const makeAdmin = () => {
-    // fetch(`http://localhost:5000/user/admin/${user?.email}`, {
-    //   method: "PUT",
-    //   headers: {},
-    // })
-    //   .then((res) => {
-    //     // if (res.status === 403) {
-    //     //   toast.error("Failed to Make an admin");
-    //     // }
-    //     return res.json();
-    //   })
-    //   .then((data) => {
-    //     if (data.modifiedCount > 0) {
-    //       // refetch();
-    //       toast.success(`Successfully made an admin`);
-    //     }
-    //   });
+    fetch(`http://localhost:5000/user/admin/${user?.email}`, {
+      method: "PUT",
+      headers: {},
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          toast.success(`Successfully made an admin`);
+        }
+      });
     // console.log(user?.email);
   };
   return (
     <tr>
       <td>{user?.email}</td>
       <td>
-        {user?.role !== "admin" && (
-          <button onClick={makeAdmin} class="btn btn-xs btn-secondary">
+        {user?.role !== "admin" ? (
+          <button onClick={makeAdmin} class="btn btn-xs btn-orange-500">
             Add Admin
           </button>
+        ) : (
+          <h1 className="text-green-700 font-bold">Already Admin</h1>
         )}
       </td>
       <td>

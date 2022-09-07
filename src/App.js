@@ -20,6 +20,7 @@ import ManageAllProducts from "./Components/pages/Dashboard/ManageAllProducts";
 import AddCarProducts from "./Components/pages/Dashboard/AddCarProducts";
 import ManageAllUsers from "./Components/pages/Dashboard/ManageAllUsers";
 import Payment from "./Components/pages/Dashboard/Payment";
+import RequireAdmin from "./Components/pages/Login/RequireAdmine";
 
 function App() {
   return (
@@ -73,7 +74,14 @@ function App() {
           <Route path="manageAllOrders" element={<ManageAllOrders />} />
           <Route path="manageAllProducts" element={<ManageAllProducts />} />
           <Route path="addNewProducts" element={<AddCarProducts />} />
-          <Route path="manageAllUser" element={<ManageAllUsers />} />
+          <Route
+            path="manageAllUser"
+            element={
+              <RequireAdmin>
+                <ManageAllUsers />
+              </RequireAdmin>
+            }
+          />
         </Route>
         {/* Dashboard End */}
         <Route path="/login" element={<Login />}></Route>
