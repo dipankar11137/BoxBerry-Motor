@@ -1,7 +1,7 @@
 import React from "react";
 
 const Blog = ({ blog }) => {
-  const { _id, img3, name, date, description } = blog;
+  const { img3, name, date, description } = blog;
   console.log(blog);
   return (
     <div className="card bg-base-300 hover:bg-purple-300 shadow-2xl md:mr-4">
