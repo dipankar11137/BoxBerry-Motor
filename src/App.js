@@ -21,6 +21,7 @@ import AddCarProducts from "./Components/pages/Dashboard/AddCarProducts";
 import ManageAllUsers from "./Components/pages/Dashboard/ManageAllUsers";
 import Payment from "./Components/pages/Dashboard/Payment";
 import RequireAdmin from "./Components/pages/Login/RequireAdmine";
+import Blogs from "./Components/pages/Blogs/Blogs";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />}></Route>
+        <Route path="/blogs" element={<Blogs />}></Route>
         <Route
           path="/booking/:id"
           element={
