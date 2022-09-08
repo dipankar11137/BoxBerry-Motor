@@ -5,9 +5,9 @@ const CarTool = ({ tool, handleModal, carToolId, handleBooking }) => {
 
   return (
     <div>
-      <div class=" w-full max-w-sm  bg-white rounded-2xl shadow-2xl hover:shadow-inherit dark:bg-gray-800 dark:border-gray-700  hover:bg-purple-900 ">
-        {/* <img class="p-8 rounded-t-lg" src={tool.img} alt="product image"> */}
-        {/* <span class="indicator-item badge badge-primary">new</span> */}
+      <div className=" w-full max-w-sm  bg-white rounded-2xl shadow-2xl hover:shadow-inherit dark:bg-gray-800 dark:border-gray-700  hover:bg-purple-900 ">
+        {/* <img className="p-8 rounded-t-lg" src={tool.img} alt="product image"> */}
+        {/* <span className="indicator-item badge badge-primary">new</span> */}
         <figure>
           <div className="">
             <img
@@ -18,66 +18,66 @@ const CarTool = ({ tool, handleModal, carToolId, handleBooking }) => {
             />
           </div>
         </figure>
-        <div class="px-5 pb-5 mt-3">
-          <h2 class="card-title text-white">
+        <div className="px-5 pb-5 mt-3">
+          <h2 className="card-title text-white">
             {name}
-            <div class="badge badge-secondary">{status}</div>
+            <div className="badge badge-secondary">{status}</div>
           </h2>
           <h2 className="text-lg text-white">
             Available Products : <span>{quantity}</span>
           </h2>
 
-          <div class="rating rating-sm">
+          <div className="rating rating-sm">
             <input
               type="radio"
               name="rating-2"
-              class="mask mask-star-2 bg-orange-500"
+              className="mask mask-star-2 bg-orange-500"
             />
             <input
               type="radio"
               name="rating-2"
-              class="mask mask-star-2 bg-orange-500"
+              className="mask mask-star-2 bg-orange-500"
               checked
             />
             <input
               type="radio"
               name="rating-2"
-              class="mask mask-star-2 bg-orange-500"
+              className="mask mask-star-2 bg-orange-500"
             />
             <input
               type="radio"
               name="rating-2"
-              class="mask mask-star-2 bg-orange-500"
+              className="mask mask-star-2 bg-orange-500"
             />
             <input
               type="radio"
               name="rating-2"
-              class="mask mask-star-2 bg-orange-500"
+              className="mask mask-star-2 bg-orange-500"
             />
           </div>
 
-          <div class="flex justify-between items-center">
-            <span class="text-3xl font-bold text-gray-900 dark:text-white">
+          <div className="flex justify-between items-center">
+            <span className="text-2xl font-bold text-gray-900 dark:text-white">
               $ {price}
             </span>
             {/* <!-- The button to open modal --> */}
             <button onClick={() => handleModal(_id)}>
-              <label for="my-modal-3" class="btn btn-info modal-button">
+              <label for="my-modal-3" className="btn btn-info  modal-button">
                 Details
               </label>
             </button>
 
             {/* <!-- Put this part before </body> tag --> */}
-            <input type="checkbox" id="my-modal-3" class="modal-toggle" />
-            <div class="modal">
-              <div class="modal-box relative ">
+            <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+            <div className="modal">
+              <div className="modal-box relative ">
                 <label
                   for="my-modal-3"
-                  class="btn btn-sm btn-circle absolute right-2 top-2"
+                  className="btn btn-sm btn-circle absolute right-2 top-2"
                 >
                   ✕
                 </label>
-                <div class="card w-11/12 hover:dark:bg-gray-700 dark:bg-gray-800 shadow-xl text-white">
+                <div className="card w-11/12 hover:dark:bg-gray-700 dark:bg-gray-800 shadow-xl text-white">
                   <figure>
                     <img
                       className="w-full h-56"
@@ -85,10 +85,10 @@ const CarTool = ({ tool, handleModal, carToolId, handleBooking }) => {
                       alt="Shoes"
                     />
                   </figure>
-                  <div class="card-body">
-                    <h2 class="card-title">
+                  <div className="card-body">
+                    <h2 className="card-title">
                       {carToolId?.name}
-                      <div class="badge badge-secondary">
+                      <div className="badge badge-secondary">
                         {carToolId?.status}
                       </div>
                     </h2>
@@ -115,9 +115,9 @@ const CarTool = ({ tool, handleModal, carToolId, handleBooking }) => {
             {/* Book Button  */}
             <button
               onClick={() => handleBooking(_id)}
-              class="btn btn-orange-500"
+              className="btn   btn-orange-500"
             >
-              Book Now
+              Book
             </button>
           </div>
         </div>

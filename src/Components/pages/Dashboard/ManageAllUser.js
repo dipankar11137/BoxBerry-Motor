@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 const ManageAllUser = ({ user }) => {
   const makeAdmin = () => {
-    fetch(`http://localhost:5000/user/admin/${user?.email}`, {
+    fetch(`https://boxberry.onrender.com/user/admin/${user?.email}`, {
       method: "PUT",
       headers: {},
     })
@@ -20,7 +20,7 @@ const ManageAllUser = ({ user }) => {
       <td>{user?.email}</td>
       <td>
         {user?.role !== "admin" ? (
-          <button onClick={makeAdmin} class="btn btn-xs btn-orange-500">
+          <button onClick={makeAdmin} className="btn btn-xs btn-orange-500">
             Add Admin
           </button>
         ) : (
@@ -28,7 +28,7 @@ const ManageAllUser = ({ user }) => {
         )}
       </td>
       <td>
-        <button class="btn btn-xs">Remove Admin</button>
+        <button className="btn btn-xs">Remove Admin</button>
       </td>
     </tr>
   );

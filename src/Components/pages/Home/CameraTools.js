@@ -6,7 +6,7 @@ const CameraTools = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/cameraProducts/")
+    fetch("https://boxberry.onrender.com/cameraProducts/")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

@@ -14,7 +14,7 @@ const MyOrders = () => {
   const [booking, setBooking] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/carBooking/${email}`)
+    fetch(`https://boxberry.onrender.com/carBooking/${email}`)
       .then((res) => res.json())
       .then((data) => setBooking(data));
   }, [booking]);
@@ -22,7 +22,7 @@ const MyOrders = () => {
   const handleRemove = (id) => {
     const proceed = window.confirm("Are You Sure ?");
     if (proceed) {
-      const url = `http://localhost:5000/carBooking/${id}`;
+      const url = `https://boxberry.onrender.com/carBooking/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -44,7 +44,7 @@ const MyOrders = () => {
   //   const newQuantity = parseInt(booking?.quantity) + quantity;
   //   const updateQuantity = { quantity: newQuantity };
 
-  //   fetch(`http://localhost:5000/carTools/${id}`, {
+  //   fetch(`https://boxberry.onrender.com/carTools/${id}`, {
   //     method: "PUT",
   //     headers: {
   //       "content-type": "application/json",
@@ -65,8 +65,8 @@ const MyOrders = () => {
     <div>
       <div className="bg-slate-700 pb-10 text-white">
         {/* <h1 className="">Booking</h1> */}
-        <div class="overflow-x-auto mx-52 border rounded-xl text-black ">
-          <table class="table w-full text-center text-2xl">
+        <div className="overflow-x-auto mx-52 border rounded-xl text-black ">
+          <table className="table w-full text-center text-2xl">
             <thead>
               <tr className="text-white">
                 {/* <th></th> */}

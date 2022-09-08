@@ -8,7 +8,7 @@ const ManageAllProducts = () => {
   const [singleProduct, setSingleProduct] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:5000/carTools")
+    fetch("https://boxberry.onrender.com/carTools")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [car]);
@@ -16,7 +16,7 @@ const ManageAllProducts = () => {
   const handleRemove = (id) => {
     const proceed = window.confirm("Are you sure ?");
     if (proceed) {
-      const url = `http://localhost:5000/carTools/${id}`;
+      const url = `https://boxberry.onrender.com/carTools/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -31,7 +31,7 @@ const ManageAllProducts = () => {
   };
 
   const handleEdit = (id) => {
-    fetch(`http://localhost:5000/carTools/${id}`)
+    fetch(`https://boxberry.onrender.com/carTools/${id}`)
       .then((res) => res.json())
       .then((data) => setSingleProduct(data));
   };
@@ -42,7 +42,7 @@ const ManageAllProducts = () => {
       parseInt(event.target.quantity.value) + parseInt(singleProduct.quantity);
     console.log(newQuantity);
     const updateQuantity = { quantity: newQuantity };
-    fetch(`http://localhost:5000/carTools/${singleProduct?._id}`, {
+    fetch(`https://boxberry.onrender.com/carTools/${singleProduct?._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -64,8 +64,8 @@ const ManageAllProducts = () => {
       </h1>
 
       <div>
-        <div class="overflow-x-auto w-full">
-          <table class="table w-10/12 text-center">
+        <div className="overflow-x-auto w-full">
+          <table className="table w-10/12 text-center">
             <thead>
               <tr>
                 <th className="pl-14 text-sm"> Name</th>

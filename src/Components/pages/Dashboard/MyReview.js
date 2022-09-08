@@ -28,7 +28,7 @@ const MyReview = () => {
     reset,
   } = useForm();
   const onSubmit = (data) => {
-    const url = `http://localhost:5000/review`;
+    const url = `https://boxberry.onrender.com/review`;
     fetch(url, {
       method: "POST",
       headers: {

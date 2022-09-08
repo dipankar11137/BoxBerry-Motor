@@ -13,7 +13,7 @@ const MyProfile = () => {
   console.log(authUser);
   const [dbUser, setDbUser] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/user?email=${authUser?.email}`)
+    fetch(`https://boxberry.onrender.com/user?email=${authUser?.email}`)
       .then((res) => res.json())
       .then((data) => setDbUser(data));
   }, [dbUser]);
@@ -37,7 +37,7 @@ const MyProfile = () => {
       bio,
       photo,
     };
-    fetch(`http://localhost:5000/create-user/${dbUser?.email}`, {
+    fetch(`https://boxberry.onrender.com/create-user/${dbUser?.email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -59,10 +59,10 @@ const MyProfile = () => {
 
   return (
     <div className="w-full md:flex">
-      <div class="indicator bg-white rounded mt-10 m-4 w-1/3 h-fit">
+      <div className="indicator bg-white rounded mt-10 m-4 w-1/3 h-fit">
         <div className="-mt-6 ">
           {/* <img
-            class="mask mask-pentagon indicator-item indicator-center bg-cyan-500 -mt-6 w-40"
+            className="mask mask-pentagon indicator-item indicator-center bg-cyan-500 -mt-6 w-40"
             src={dbUser?.photo || profilePic}
             alt=""
           /> */}
@@ -117,48 +117,48 @@ const MyProfile = () => {
           <form onSubmit={handleProfileUpdate}>
             <div className="mt-8">
               <div className="flex gap-4 justify-between">
-                <div class="form-control w-full max-w-xs">
-                  <label class="label">
-                    <span class="label-text">Full Name</span>
+                <div className="form-control w-full max-w-xs">
+                  <label className="label">
+                    <span className="label-text">Full Name</span>
                   </label>
                   <input
                     name="name"
                     type="text"
                     placeholder="Type here"
-                    class="input input-sm input-bordered w-full max-w-xs"
+                    className="input input-sm input-bordered w-full max-w-xs"
                   />
                 </div>
-                <div class="form-control w-full max-w-xs">
-                  <label class="label">
-                    <span class="label-text">Date of Birth</span>
+                <div className="form-control w-full max-w-xs">
+                  <label className="label">
+                    <span className="label-text">Date of Birth</span>
                   </label>
                   <input
                     name="birthday"
                     type="date"
                     placeholder="Type here"
-                    class="input input-sm input-bordered w-full max-w-xs"
+                    className="input input-sm input-bordered w-full max-w-xs"
                   />
                 </div>
               </div>
               <div className="flex gap-4 justify-between mt-4">
-                <div class="form-control w-full max-w-xs">
-                  <label class="label">
-                    <span class="label-text">Contact</span>
+                <div className="form-control w-full max-w-xs">
+                  <label className="label">
+                    <span className="label-text">Contact</span>
                   </label>
                   <input
                     name="phone"
                     type="text"
                     placeholder="Type here"
-                    class="input input-sm input-bordered w-full max-w-xs"
+                    className="input input-sm input-bordered w-full max-w-xs"
                   />
                 </div>
-                <div class="form-control w-full max-w-xs">
-                  <label class="label">
-                    <span class="label-text">Sex</span>
+                <div className="form-control w-full max-w-xs">
+                  <label className="label">
+                    <span className="label-text">Sex</span>
                   </label>
                   <select
                     name="sex"
-                    class="select select-sm select-bordered w-full max-w-xs"
+                    className="select select-sm select-bordered w-full max-w-xs"
                   >
                     <option disabled selected>
                       {dbUser?.sex}
@@ -170,27 +170,27 @@ const MyProfile = () => {
                 </div>
               </div>
               <div className="flex gap-4 justify-between mt-4">
-                <div class="form-control w-full">
-                  <label class="label">
-                    <span class="label-text">Bio</span>
+                <div className="form-control w-full">
+                  <label className="label">
+                    <span className="label-text">Bio</span>
                   </label>
                   <textarea
                     name="bio"
                     type="text"
                     placeholder="Type here"
-                    class="textarea textarea-bordered w-full"
+                    className="textarea textarea-bordered w-full"
                   />
                 </div>
               </div>
-              <div class="form-control w-full">
-                <label class="label">
-                  <span class="label-text">Profile Picture Link</span>
+              <div className="form-control w-full">
+                <label className="label">
+                  <span className="label-text">Profile Picture Link</span>
                 </label>
                 <input
                   name="photo"
                   type="text"
                   placeholder="Type here"
-                  class="input input-sm input-bordered w-full"
+                  className="input input-sm input-bordered w-full"
                 />
               </div>
             </div>

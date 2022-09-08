@@ -21,7 +21,7 @@ const MyOrder = ({ book, handleRemove }) => {
         {book?.price && book?.paid && <span className="btn btn-sm">Payed</span>}
       </td>
       <td className="bg-indigo-300">
-        <button onClick={() => handleRemove(_id)} class="btn btn-xs">
+        <button onClick={() => handleRemove(_id)} className="btn btn-xs">
           Remove Order
         </button>
       </td>

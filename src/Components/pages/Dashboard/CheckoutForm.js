@@ -6,12 +6,14 @@ const CheckoutForm = ({ booking }) => {
   const elements = useElements();
   const [cardError, setCardError] = useState("");
   const [success, setSuccess] = useState("");
+  const [processing, setProcessing] = useState(false);
+  const [transactionId, setTransactionId] = useState("");
   const [clientSecret, setClientSecret] = useState("");
-  const { price, name, email, phone } = booking;
-  console.log(booking);
+  const { _id, price, name, email, phone } = booking;
+  // console.log(booking);
 
   useEffect(() => {
-    fetch("http://localhost:5000/payment-system", {
+    fetch("https://boxberry.onrender.com/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -47,6 +49,7 @@ const CheckoutForm = ({ booking }) => {
 
     setCardError(error?.message || "");
     setSuccess("");
+    setProcessing(true);
     // conform card payment
     const { paymentIntent, error: intentError } =
       await stripe.confirmCardPayment(clientSecret, {
@@ -61,9 +64,29 @@ const CheckoutForm = ({ booking }) => {
       });
     if (intentError) {
       setCardError(intentError?.message);
+      setProcessing(false);
     } else {
       setCardError("");
+      setTransactionId(paymentIntent.id);
       setSuccess("Your Payment is Completed");
+
+      // store payment on database
+      const payment = {
+        appointment: _id,
+        transactionId: paymentIntent.id,
+      };
+      fetch(`https://boxberry.onrender.com/carBooking/${_id}`, {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(payment),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setProcessing(false);
+          console.log(data);
+        });
     }
   };
   return (
@@ -90,7 +113,15 @@ const CheckoutForm = ({ booking }) => {
         </button>
       </form>
       {cardError && <h1 className="text-red-500">{cardError}</h1>}
-      {success && <h1 className="text-green-500">{success}</h1>}
+      {success && (
+        <div className="text-green-500">
+          <p>{success}</p>
+          <p>
+            Your transaction id :{" "}
+            <span className="text-orange font-bold">{transactionId}</span>
+          </p>
+        </div>
+      )}
     </>
   );
 };

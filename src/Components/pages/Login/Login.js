@@ -44,9 +44,12 @@ const Login = () => {
   const onSubmit = async (data) => {
     const email = data.email;
     await signInWithEmailAndPassword(data.email, data.password);
-    const { accesstoken } = await axios.post("http://localhost:5000/login", {
-      email,
-    });
+    const { accesstoken } = await axios.post(
+      "https://boxberry.onrender.com/login",
+      {
+        email,
+      }
+    );
     console.log(accesstoken);
   };
 

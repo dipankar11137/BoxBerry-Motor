@@ -15,7 +15,7 @@ const AddCarProducts = () => {
     reset,
   } = useForm();
   const onSubmit = (data) => {
-    const url = `http://localhost:5000/carTools`;
+    const url = `https://boxberry.onrender.com/carTools`;
     fetch(url, {
       method: "POST",
       headers: {

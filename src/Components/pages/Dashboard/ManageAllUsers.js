@@ -6,15 +6,15 @@ const ManageAllUsers = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://boxberry.onrender.com/users")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, [users]);
 
   return (
     <div className="mx-10">
-      <div class="overflow-x-auto">
-        <table class="table w-full">
+      <div className="overflow-x-auto">
+        <table className="table w-full">
           <thead>
             <tr>
               <th>Email</th>

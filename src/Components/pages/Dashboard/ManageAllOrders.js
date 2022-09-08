@@ -5,7 +5,7 @@ const ManageAllOrders = () => {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/carBooking")
+    fetch("https://boxberry.onrender.com/carBooking")
       .then((res) => res.json())
       .then((data) => setBookings(data));
   }, []);
@@ -16,8 +16,8 @@ const ManageAllOrders = () => {
         Manage All order
       </h1>
       <div>
-        <div class="overflow-x-auto w-full">
-          <table class="table w-full text-center">
+        <div className="overflow-x-auto w-full">
+          <table className="table w-full text-center">
             <thead>
               <tr>
                 <th className="pl-14 text-sm"> Name</th>

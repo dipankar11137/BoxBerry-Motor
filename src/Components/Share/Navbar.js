@@ -16,7 +16,7 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/carBooking/${email}`)
+    fetch(`https://boxberry.onrender.com/carBooking/${email}`)
       .then((res) => res.json())
       .then((data) => setBooking(data));
   }, [booking]);
@@ -103,12 +103,12 @@ const Navbar = () => {
         <label
           onClick={handleBook}
           tabindex="0"
-          class="btn btn-ghost btn-circle mr-3"
+          className="btn btn-ghost btn-circle mr-3"
         >
-          <div class="indicator">
+          <div className="indicator">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
+              className="h-5 w-5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -120,13 +120,15 @@ const Navbar = () => {
                 d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
               />
             </svg>
-            <span class="badge badge-sm indicator-item">{booking.length}</span>
+            <span className="badge badge-sm indicator-item">
+              {booking.length}
+            </span>
           </div>
         </label>
         {user ? (
-          <div class="dropdown dropdown-end  mr-5">
-            <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-              <div class="w-10 rounded-full">
+          <div className="dropdown dropdown-end  mr-5">
+            <label tabindex="0" className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
                 {/* <img src="https://placeimg.com/80/80/people" alt="" /> */}
                 {user.photoURL ? (
                   <img src={user?.photoURL} alt="" />
@@ -141,7 +143,7 @@ const Navbar = () => {
             </label>
             <ul
               tabindex="0"
-              class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-40 dark:bg-gray-800 dark:border-gray-700 hover:dark:bg-purple-900"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-40 dark:bg-gray-800 dark:border-gray-700 hover:dark:bg-purple-900"
             >
               <li>
                 <Link to="/">Profile</Link>

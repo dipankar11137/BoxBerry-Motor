@@ -10,13 +10,13 @@ const AllCarProducts = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/carTools")
+    fetch("https://boxberry.onrender.com/carTools")
       .then((res) => res.json())
       .then((data) => setCarTools(data));
   }, [carTools]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/carTools/${id}`)
+    fetch(`https://boxberry.onrender.com/carTools/${id}`)
       .then((res) => res.json())
       .then((data) => setCarToolId(data));
   }, [carToolId]);

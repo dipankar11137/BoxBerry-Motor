@@ -11,7 +11,7 @@ const stripePromise = loadStripe(
 
 const Payment = () => {
   const { id } = useParams();
-  const url = `http://localhost:5000/carBookings/${id}`;
+  const url = `https://boxberry.onrender.com/carBookings/${id}`;
 
   const { data: booking, isLoading } = useQuery(["booking", id], () =>
     fetch(url).then((res) => res.json())
@@ -21,16 +21,16 @@ const Payment = () => {
   }
   return (
     <div>
-      <div class="card w-50 max-w-md bg-base-100 shadow-xl my-12">
-        <div class="card-body">
+      <div className="card w-50 max-w-md bg-base-100 shadow-xl my-12">
+        <div className="card-body">
           <p className="text-success font-bold">Hello, </p>
-          <h2 class="card-title">Please Pay for {booking?.name}</h2>
+          <h2 className="card-title">Please Pay for {booking?.name}</h2>
 
           <p>Please pay: ${booking?.price} </p>
         </div>
       </div>
-      <div class="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100">
-        <div class="card-body">
+      <div className="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100">
+        <div className="card-body">
           <Elements stripe={stripePromise}>
             <CheckoutForm booking={booking} />
           </Elements>

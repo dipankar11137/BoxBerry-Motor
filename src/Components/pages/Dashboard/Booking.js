@@ -20,7 +20,7 @@ const Booking = () => {
   const [booking, setBooking] = useState({});
 
   useEffect(() => {
-    const url = `http://localhost:5000/carTools/${id}`;
+    const url = `https://boxberry.onrender.com/carTools/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setBooking(data));
@@ -34,7 +34,7 @@ const Booking = () => {
     if (newQuantity > beforeQuantity) {
       return toast.error("More than available product");
     } else {
-      fetch("http://localhost:5000/carBooking", {
+      fetch("https://boxberry.onrender.com/carBooking", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -57,7 +57,7 @@ const Booking = () => {
       const newQuantity = parseInt(booking?.quantity) - quantity;
       const updateQuantity = { quantity: newQuantity };
 
-      fetch(`http://localhost:5000/carTools/${id}`, {
+      fetch(`https://boxberry.onrender.com/carTools/${id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

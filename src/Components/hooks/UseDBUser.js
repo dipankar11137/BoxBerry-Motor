@@ -7,7 +7,7 @@ const useDBUser = (email) => {
     isLoading,
     refetch,
   } = useQuery("dbUser", () =>
-    fetch(`http://localhost:5000/user?email=${email}`, {
+    fetch(`https://boxberry.onrender.com/user?email=${email}`, {
       method: "GET",
       headers: {},
     }).then((res) => res.json())

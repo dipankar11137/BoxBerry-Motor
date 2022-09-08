@@ -12,17 +12,21 @@ const Dashboard = () => {
   return (
     <div className="bg-slate-900">
       <div>
-        <div class="drawer drawer-mobile">
-          <input id="dashboard-sidebar" type="checkbox" class="drawer-toggle" />
-          <div class="drawer-content ">
+        <div className="drawer drawer-mobile">
+          <input
+            id="dashboard-sidebar"
+            type="checkbox"
+            className="drawer-toggle"
+          />
+          <div className="drawer-content ">
             <h2 className="text-4xl bg-slate-900 text-lime-400 font-bold text-center mb-3 uppercase p-1">
               Welcome <span className="text-orange-600">to My</span> DashBoard
             </h2>
             <Outlet></Outlet>
           </div>
-          <div class="drawer-side ml-1">
-            <label for="dashboard-sidebar" class="drawer-overlay "></label>
-            <ul class="menu  py-6 overflow-y-auto w-60 bg-blue-900 text-white">
+          <div className="drawer-side ml-1">
+            <label for="dashboard-sidebar" className="drawer-overlay "></label>
+            <ul className="menu  py-6 overflow-y-auto w-60 bg-blue-900 text-white">
               <li>
                 <Link
                   to="/dashboard"

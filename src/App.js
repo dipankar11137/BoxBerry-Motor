@@ -31,7 +31,14 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/booking/:id" element={<Booking />}></Route>
+        <Route
+          path="/booking/:id"
+          element={
+            <RequireAuth>
+              <Booking />
+            </RequireAuth>
+          }
+        ></Route>
         <Route
           path="/myOrders"
           element={
