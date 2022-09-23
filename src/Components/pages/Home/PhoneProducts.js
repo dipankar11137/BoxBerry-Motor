@@ -15,7 +15,7 @@ const PhoneProducts = () => {
       <h1 className="text-5xl text-center uppercase font-bold pt-5 text-fuchsia-900">
         Mobile Phone Products{" "}
       </h1>
-      <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 mt-10 px-4 gap-2">
+      <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 mt-10 px-4 gap-x-2 gap-y-6">
         {products.slice(0, 10).map((product) => (
           <PhoneProduct key={product._id} product={product}></PhoneProduct>
         ))}

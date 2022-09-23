@@ -1,9 +1,9 @@
 import React from "react";
 
 const PhoneProduct = ({ product }) => {
-  const { name, img, description, quantity, price } = product;
+  const { name, img, quantity, price } = product;
   return (
-    <div className="card w-64 bg-gray-800 shadow-xl text-slate-200">
+    <div className="card w-60 bg-gray-800 shadow-xl text-slate-200">
       <div className="avatar w-64 h-40 justify-center">
         <img className="pic-style" src={img} alt="" />
       </div>
