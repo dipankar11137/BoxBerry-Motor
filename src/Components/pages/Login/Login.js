@@ -1,14 +1,14 @@
+import axios from "axios";
 import React from "react";
 import {
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import auth from "../../../firebase.init";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import login from "../../../Images/Login/login.jpg";
+import auth from "../../../firebase.init";
 import Loading from "../../Share/Loading";
-import axios from "axios";
-import login from "../../../Images/Login/360_F_267991674_gvrxELXuoNicNkhZlnZy3e90gDeD9L3f.jpg";
 
 const Login = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);

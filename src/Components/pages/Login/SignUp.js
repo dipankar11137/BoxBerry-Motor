@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import React from "react";
 import {
   useCreateUserWithEmailAndPassword,
   useSignInWithGoogle,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
+import { useForm } from "react-hook-form";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import login from "../../../Images/Login/login.jpg";
 import auth from "../../../firebase.init";
-import login from "../../../Images/Login/360_F_267991674_gvrxELXuoNicNkhZlnZy3e90gDeD9L3f.jpg";
 
 const SignUp = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);

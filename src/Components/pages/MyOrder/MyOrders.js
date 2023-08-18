@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useQuery } from "react-query";
 import { toast } from "react-toastify";
 import auth from "../../../firebase.init";
 import Footer from "../../Share/Footer";
@@ -17,7 +16,7 @@ const MyOrders = () => {
     fetch(`https://boxberry.onrender.com/carBooking/${email}`)
       .then((res) => res.json())
       .then((data) => setBooking(data));
-  }, [booking]);
+  }, [booking,email]);
 
   const handleRemove = (id) => {
     const proceed = window.confirm("Are You Sure ?");
@@ -62,8 +61,8 @@ const MyOrders = () => {
   // };
 
   return (
-    <div>
-      <div className="bg-slate-700 pb-10 text-white">
+    <div >
+      <div className="bg-slate-700 pb-10 h-screen text-white">
         {/* <h1 className="">Booking</h1> */}
         <div className="overflow-x-auto mx-52 border rounded-xl text-black ">
           <table className="table w-full text-center text-2xl">
